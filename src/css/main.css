@@ -8,6 +8,10 @@
 	padding: 0;
 }
 
+.collection-item {
+	cursor: pointer;
+}
+
 .list-group {
   display: flex;
   flex-direction: row;
@@ -28,6 +32,6 @@
   font-family: 'PT Sans', sans-serif;
   padding: 1em 1em 1em 1em;
   border: 1px solid #fff;
-
+  
   cursor: pointer;
 }
