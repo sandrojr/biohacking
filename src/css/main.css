@@ -1,9 +1,17 @@
+.content {
+	margin-top: 30px;
+	margin-bottom: 60px;
+}
 
-.list-group{
+.prefix {
+	margin-top: 10px;
+	padding: 0;
+}
+
+.list-group {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: 20px;
 }
 
 .list-group-item {
@@ -19,6 +27,7 @@
   font-family: Verdana;
   font-family: 'PT Sans', sans-serif;
   padding: 1em 1em 1em 1em;
-  border: 1px solid #eee;
+  border: 1px solid #fff;
 
   cursor: pointer;
+}
