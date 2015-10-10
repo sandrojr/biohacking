@@ -1,61 +1,57 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="app">
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<meta charset="utf-8">
 	<title>Biohacking</title>
-	<meta name="generator" content="Bootply" />
+	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	
-	<link rel="stylesheet" href="./css/bootstrap.min.css" />
-	<link rel="stylesheet" href="./css/bootstrap-theme.min.css" />
-	<link rel="stylesheet" href="./css/style.css" />
-	
-	
-	<!--[if lt IE 9]>
-		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-	
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+	<link rel="stylesheet" href="./src/css/main.css">
 </head>
 <body>
-	<div class="navbar navbar-default navbar-static-top">
-	  <div class="container">
-	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </button>
-	      <a class="navbar-brand" href="#">Biohacking</a>
-	    </div>
-	    <div class="collapse navbar-collapse">
-	      <ul class="nav navbar-nav">
-	        <li><a href="#">Filter</a></li>
-	        <li><a href="#">Today</a></li>
-			<li><a href="#">Charts</a></li>
-	      </ul>
-	      <ul class="nav navbar-nav navbar-right">
-	        <li><a href="#">Logout</a></li>
-	      </ul>
-	    </div><!--/.nav-collapse -->
-	  </div>
-	</div>
 
-	<div class="list-container" data-ng-controller="BiohackingController">
-	  <section>
-		  <div class="list-group">
-		  		<a href="#" ng-repeat="kind in kinds" class="list-group-item list-group-item-success">{{kind.name}}</a>			  
-		  </div>
-	  </section>
-	  <section>
-	  
-	  </section>
-	</div><!-- /.container -->
+	<nav class="light-blue lighten-1" role="navigation">
+		<div class="container">
+			<a id="logo-container" href="#/">Biohacking</a>
+
+			<ul class="right">
+				<li><a href="#/">Logs</a></li>
+				<li><a href="#/">Filter</a></li>
+				<li><a href="#/">Today</a></li>
+			</ul>
+		</div>
+	</nav>
+
+    <div class="container content" ng-view></div>
 	
-	<script src='./js/angular-1.0.1.js'></script>
-	<script src="./controller/biohacking_controller.js"></script>
-	<script src="./js/jquery.min.js"></script>
-	<script src="./js/bootstrap.min.js"></script>
-	<script src="./js/bootstrap.js"></script>
+	<!-- Compiled and minified JavaScript -->
+	<script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+	
+	<script src='//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js'></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-sanitize.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+  	<script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+  	
+	
+	<script src="./src/js/third-party/lovefield.js"></script>
+	<script src="./src/js/third-party/moment.min.js"></script>
+	<script src="./src/js/third-party/angular-moment.min.js"></script>
+
+  	<script src="./src/js/core/app.js"></script>
+  	<script src="./src/js/core/routes.js"></script>
+
+	<script src="./src/js/services/database.js"></script>
+	<script src="./src/js/services/log-model.js"></script>
+
+  	<script src="./src/js/controllers/main.js"></script>
+  	<script src="./src/js/controllers/add.js"></script>
+  	<script src="./src/js/controllers/filter.js"></script>
+  	
+
+
 </body>
 </html>

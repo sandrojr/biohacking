@@ -1,0 +1,22 @@
+<div ng-show="vm.model.id" ng-include="'src/views/form.html'"></div>
+
+<ul class="collection" ng-show="vm.logs.length">
+	<li class="collection-item" ng-repeat="log in vm.logs track by log.id">
+		<div class="row" ng-click="vm.model = log">
+			<div class="col s6">
+				<h6 class="title"><b>{{log.kind}}</b></h6>
+				<small>{{log.logged_at | amDateFormat:'MM/DD/YYYY HH:mm'}}</small>
+			</div>
+			
+			<div class="col s6" ng-bind-html="vm.showHashtag(log.description)"></div>
+		</div>
+	</li>
+</ul>
+
+<p ng-hide="vm.logs.length">You have no logs yet. Please, start adding one <a ng-href="#/add">here</a>.</p>
+
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <a href="#/add" class="btn-floating btn-large waves-effect waves-light red">
+    	<i class="large material-icons">add</i>
+    </a>
+</div>

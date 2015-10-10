@@ -1,0 +1,11 @@
+<div ng-show="vm.model.kind.id" ng-include="'src/views/form.html'"></div>
+
+<div class="list-group" ng-hide="vm.model.kind.id">
+ 	<div 
+ 		class="list-group-item grey lighten-3"
+ 		ng-click="vm.model.kind = kind"
+ 		ng-repeat="kind in vm.kinds">
+
+ 		{{kind.name}}
+ 	</div>
+</div>
