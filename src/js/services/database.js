@@ -33,7 +33,8 @@
 				    addColumn('logged_at', lf.Type.DATE_TIME).
 				    addColumn('description', lf.Type.STRING).
 				    addColumn('user_id', lf.Type.INTEGER).
-				    addPrimaryKey(['id'], true);
+				    addPrimaryKey(['id'], true).
+				    addNullable(['description']);
 
 			schemaBuilder.
 				createTable('users').

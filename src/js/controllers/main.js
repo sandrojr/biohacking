@@ -48,7 +48,9 @@
 		}
 
 		function showHashtag(string) {
-			return string.replace(/(#[a-z0-9][a-z0-9\-_]*)/ig, "<a>$1</a>");
+			if (string) {
+				return string.replace(/(#[a-z0-9][a-z0-9\-_]*)/ig, "<a>$1</a>");	
+			}
 		}
 	}
 

@@ -17,18 +17,28 @@
 
 	<nav class="light-blue lighten-1" role="navigation">
 		<div class="container">
-			<a id="logo-container" href="#/"><img src="favicon.png" width="40" class="logo" />Biohancking</a>
+			<a id="logo-container" href="#/">
+				<img src="favicon.png" width="40" class="logo" />
+				Biohancking
+			</a>
 
 			<ul class="right" ng-show="user.id">
 				<li><a href="#/">Logs</a></li>
-				<li><a href="#/">Filter</a></li>
-				<li><a href="#/">Today</a></li>
 				<li><a href="#/login">Logout</a></li>
 			</ul>
 		</div>
 	</nav>
+	
+    <main class="container content" ng-view></main>
 
-    <div class="container content" ng-view></div>
+    <footer class="page-footer" ng-show="user.id">
+		<div class="footer-copyright">
+		    <div class="container">
+		        You are logged as {{user.email}}.
+		        <a class="grey-text text-lighten-4 right" href="#/login">Logout</a>
+		    </div>
+		</div>
+    </footer>
 	
 	<!-- Compiled and minified JavaScript -->
 	<script type="text/javascript" src="./node_modules/jquery/dist/jquery.min.js"></script>
