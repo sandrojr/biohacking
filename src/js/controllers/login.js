@@ -8,11 +8,8 @@
 	function LoginController($rootScope, $route, $scope, $location, $window, Security, Database) {
 		var vm = this;
 
-		//Logout
-		delete $window.localStorage['user'];
-		$rootScope.user = null
-
 		vm.submit = submit;
+		$window.onGoogleSignIn = Security.onGoogleSignIn;
 
 		////////////////////////////////////////////////
 		

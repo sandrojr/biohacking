@@ -12,7 +12,7 @@
 		.run(init);
 
 
-	function init() {
+	function init($window) {
 		angular.element('.button-collapse').sideNav();
 	}
 

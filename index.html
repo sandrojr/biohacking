@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html ng-app="app" lang="en">
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<meta charset="utf-8">
 	<title>Biohacking</title>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
+	<meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="643625857822-ekk35rrtgk44mlj81ng95iivu2af3bh9.apps.googleusercontent.com">
+    
 	<link rel="favicon" href="favicon.png" />
 	
 	<link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="./node_modules/materialize-css/dist/css/materialize.min.css">
 	<link rel="stylesheet" href="./src/css/main.css">
+
+	<script src="//apis.google.com/js/platform.js" defer></script>
 </head>
 <body>
 
@@ -24,18 +28,28 @@
 
 			<ul class="right" ng-show="user.id">
 				<li><a href="#/">Logs</a></li>
-				<li><a href="#/login">Logout</a></li>
+				<li><a href="#/logout">Logout</a></li>
 			</ul>
 		</div>
 	</nav>
 	
-    <main class="container content" ng-view></main>
+    <main>
+    	<div ng-view class="container content"></div>
+		
+		<div class="container" ng-hide="user.id">
+			<p>Or log in with:</p>
+    		<div class="g-signin2" data-onsuccess="onGoogleSignIn" data-theme="dark"></div>	
+		</div>
+    	
+    </main>
+	
+    
 
     <footer class="page-footer" ng-show="user.id">
 		<div class="footer-copyright">
 		    <div class="container">
 		        You are logged as {{user.email}}.
-		        <a class="grey-text text-lighten-4 right" href="#/login">Logout</a>
+		        <a class="grey-text text-lighten-4 right" href="#/logout">Logout</a>
 		    </div>
 		</div>
     </footer>
@@ -63,6 +77,7 @@
   	<script src="./src/js/controllers/add.js"></script>
   	<script src="./src/js/controllers/filter.js"></script>
   	<script src="./src/js/controllers/login.js"></script>
+  	<script src="./src/js/controllers/logout.js"></script>
   	<script src="./src/js/controllers/signup.js"></script>
 
 </body>
