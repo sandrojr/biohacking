@@ -41,6 +41,12 @@
 				}
 			})
 
+			.when('/logout', {
+				templateUrl: 'src/views/logout.html',
+				controller: 'LogoutController',
+				controllerAs: 'vm'
+			})
+
 			.when('/signup', {
 				templateUrl: 'src/views/signup.html',
 				controller: 'SignUpController',
@@ -56,7 +62,9 @@
 
 	function RouteRun($rootScope, Security) {
 		$rootScope.$on('$routeChangeStart', function(e, o) { 
-			if (o.$$route.originalPath == '/login' || o.$$route.originalPath == '/signup') {
+			if (o.$$route.originalPath == '/login' || 
+				o.$$route.originalPath == '/signup' ||
+				o.$$route.originalPath == '/logout') {
 				$rootScope.user = null;
 			} else {
 				$rootScope.user = Security.getUser();

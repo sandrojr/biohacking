@@ -11,7 +11,8 @@
 	    	getUser: getUser,
 	    	getUserByEmail: getUserByEmail,
 	    	doLogin: doLogin,
-	    	registerUser: registerUser
+	    	registerUser: registerUser,
+	    	onGoogleSignIn: onGoogleSignIn
 	    };
 
 	    ////////////////////////////////////////////////////////////////////////
@@ -51,6 +52,35 @@
 				fnFail(errorMsg);
 			});
 	    }
+
+	    function onGoogleSignIn(googleUser) {
+			var profile = googleUser.getBasicProfile();
+
+			Database.findBy('users', 'email', profile.getEmail()).then(function(result) {
+				if (result.length) {
+					var user = result[0];
+					user.img = profile.getImageUrl();
+
+					registerUser(user);
+					loginSuccess();
+				} else {
+					Database.insert('users', {
+						email: profile.getEmail(),
+						password: 1234,
+					}).then(function() {
+						getUserByEmail(profile.getEmail()).then(function(user){
+							user.img = profile.getImageUrl();
+							registerUser(user);
+							loginSuccess();
+						});
+					});
+				}
+			});
+		};
+
+		function loginSuccess() {
+			window.location.replace("#/");
+		}
 
 	}
 
