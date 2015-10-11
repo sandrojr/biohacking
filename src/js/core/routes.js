@@ -14,6 +14,10 @@
 				resolve: {
 					database: function(Database) {
 						return Database.initDB();
+					},
+
+					user: function(Security) {
+						return Security.getUser();
 					}
 				}
 			})
@@ -24,7 +28,29 @@
 				controllerAs: 'vm',
 				resolve: {
 					database: function(Database) {
-						Database.initDB();
+						return Database.initDB();
+					}
+				}
+			})
+
+			.when('/login', {
+				templateUrl: 'src/views/login.html',
+				controller: 'LoginController',
+				controllerAs: 'vm',
+				resolve: {
+					database: function(Database) {
+						return Database.initDB();
+					}
+				}
+			})
+
+			.when('/signup', {
+				templateUrl: 'src/views/signup.html',
+				controller: 'SignUpController',
+				controllerAs: 'vm',
+				resolve: {
+					database: function(Database) {
+						return Database.initDB();
 					}
 				}
 			});

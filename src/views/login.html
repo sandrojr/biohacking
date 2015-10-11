@@ -1,0 +1,24 @@
+<h4 class="title">Login</h4>
+
+<div class="row">
+	<div class="col s12 m6">
+		<form class="card grey lighten-5" ng-submit="vm.submit(vm.model)">
+			
+			<div class="card-content">
+				<div class="input-field">
+					<input placeholder="Email" id="email" ng-model="vm.model.email" type="email" class="validate">
+				</div>
+
+				<div class="input-field">
+					<input placeholder="Password" id="password" ng-model="vm.model.password" type="password" class="validate">
+				</div>
+			</div>
+			
+			<div class="card-action grey lighten-1">
+				<button type="submit" class="waves-effect waves-teal white-text btn">Log in</button>
+			</div>
+		</form>
+
+		<a href="#/signup">Don't have a account yet? Sign up here.</a>
+	</div>
+</div>

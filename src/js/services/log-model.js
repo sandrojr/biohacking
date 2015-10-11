@@ -5,7 +5,7 @@
 		.module('app')
 		.service('LogModel', LogModel);
 
-	function LogModel(Database) {
+	function LogModel(Database, Security) {
 		return function(data) {
 			data = data || {};
 
@@ -19,6 +19,7 @@
 					kind: this.kind.name,
 					logged_at: this.logged_at,
 					description: this.description,
+					user_id: Security.getUser().id
 				});
 			}
 	    };
