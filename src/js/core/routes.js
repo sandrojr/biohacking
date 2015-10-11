@@ -3,7 +3,8 @@
 
 	angular
 		.module('app')
-		.config(RouteConfig);
+		.config(RouteConfig)
+		.run(RouteRun);
 
 	function RouteConfig($routeProvider, $locationProvider) {
 		$routeProvider
@@ -14,10 +15,6 @@
 				resolve: {
 					database: function(Database) {
 						return Database.initDB();
-					},
-
-					user: function(Security) {
-						return Security.getUser();
 					}
 				}
 			})
@@ -54,5 +51,16 @@
 					}
 				}
 			});
+	}
+
+
+	function RouteRun($rootScope, Security) {
+		$rootScope.$on('$routeChangeStart', function(e, o) { 
+			if (o.$$route.originalPath == '/login' || o.$$route.originalPath == '/signup') {
+				$rootScope.user = null;
+			} else {
+				$rootScope.user = Security.getUser();
+			}
+		});
 	}
 })();

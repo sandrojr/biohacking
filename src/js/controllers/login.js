@@ -5,11 +5,12 @@
 		.module('app')
 		.controller('LoginController', LoginController);
 
-	function LoginController($route, $scope, $location, $window, Security, Database) {
+	function LoginController($rootScope, $route, $scope, $location, $window, Security, Database) {
 		var vm = this;
 
 		//Logout
 		delete $window.localStorage['user'];
+		$rootScope.user = null
 
 		vm.submit = submit;
 

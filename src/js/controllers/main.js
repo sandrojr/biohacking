@@ -5,7 +5,7 @@
 		.module('app')
 		.controller('MainController', MainController);
 
-	function MainController($route, $scope, Database, LogModel, user) {
+	function MainController($route, $scope, Database, LogModel) {
 		var vm = this;
 		var tableName = 'logs';
 
