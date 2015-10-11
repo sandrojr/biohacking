@@ -5,9 +5,11 @@
 		.module('app')
 		.controller('MainController', MainController);
 
-	function MainController($route, $scope, Database, LogModel) {
+	function MainController($route, $scope, Database, LogModel, user) {
 		var vm = this;
 		var tableName = 'logs';
+
+		console.log(user);
 
 		vm.kinds = [
 	        {id: 11, name:  "BATH"}, 

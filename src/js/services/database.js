@@ -5,7 +5,7 @@
 		.module('app')
 		.factory('Database', Database);
 
-	function Database() {
+	function Database($window) {
 		var DB_NAME = "biohacking_db";
 		var DB_VERSION = 1;
 
@@ -14,6 +14,7 @@
 	    return {
 	    	connectDb: connectDb,
 	    	findAll: findAll,
+	    	findBy: findBy,
 	    	insert: insert,
 	    	initDB: initDB,
 	    	destroy: destroy,
@@ -31,6 +32,15 @@
 				    addColumn('kind', lf.Type.STRING).
 				    addColumn('logged_at', lf.Type.DATE_TIME).
 				    addColumn('description', lf.Type.STRING).
+				    addColumn('user_id', lf.Type.INTEGER).
+				    addPrimaryKey(['id'], true);
+
+			schemaBuilder.
+				createTable('users').
+				    addColumn('id', lf.Type.INTEGER).
+				    addColumn('email', lf.Type.STRING).
+				    addColumn('password', lf.Type.STRING).
+				    addUnique('email_idx_unique', ['email']).
 				    addPrimaryKey(['id'], true);
 
 			return schemaBuilder.connect();
@@ -40,12 +50,16 @@
 	    	return schemaBuilder.connect().then(fn);
 	    }
 
+	    function getUser() {
+	    	return angular.fromJson($window.localStorage['user']);
+	    }
+
 	    function getDb() {
 	    	return schemaBuilder.db_;
 	    }
 
 	    function insert(tableName, rowData) {
-			var table = getTable(tableName);
+	    	var table = getTable(tableName);
 			var row = table.createRow(rowData);
 			return getDb().insertOrReplace().into(table).values([row]).exec();
 	    }
@@ -55,7 +69,14 @@
 	    }
 
 	    function findAll(tableName) {
-	    	return getDb().select().from(getTable(tableName)).exec();
+	    	var user = getUser();
+	    	var table = getTable(tableName);
+	    	return getDb().select().from(table).where(table.user_id.eq(user.id)).exec();
+	    }
+
+	    function findBy(tableName, column, value) {
+	    	var table = getTable(tableName);
+	    	return getDb().select().from(table).where(table[column].eq(value)).exec();
 	    }
 
 	    function destroy(tableName, id) {

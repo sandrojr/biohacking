@@ -6,21 +6,24 @@
 	<title>Biohacking</title>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link rel="favicon" href="favicon.png" />
 	
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+	<link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
 	<link rel="stylesheet" href="./src/css/main.css">
 </head>
 <body>
 
 	<nav class="light-blue lighten-1" role="navigation">
 		<div class="container">
-			<a id="logo-container" href="#/">Biohacking</a>
+			<a id="logo-container" href="#/"><img src="favicon.png" width="40" class="logo" />Biohancking</a>
 
 			<ul class="right">
 				<li><a href="#/">Logs</a></li>
 				<li><a href="#/">Filter</a></li>
 				<li><a href="#/">Today</a></li>
+				<li><a href="#/login">Logout</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -28,14 +31,12 @@
     <div class="container content" ng-view></div>
 	
 	<!-- Compiled and minified JavaScript -->
-	<script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="./src/js/third-party/jquery-2.1.1.min.js"></script>
 	
-	<script src='//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js'></script>
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-sanitize.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
-  	<script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
-  	
+	<script src='./src/js/third-party/angular.min.js'></script>
+	<script src="./src/js/third-party/angular-route.min.js"></script>
+	<script src="./src/js/third-party/angular-sanitize.min.js"></script>
+	<script src="./src/js/third-party/materialize.min.js"></script>
 	
 	<script src="./src/js/third-party/lovefield.js"></script>
 	<script src="./src/js/third-party/moment.min.js"></script>
@@ -45,13 +46,14 @@
   	<script src="./src/js/core/routes.js"></script>
 
 	<script src="./src/js/services/database.js"></script>
+	<script src="./src/js/services/security.js"></script>
 	<script src="./src/js/services/log-model.js"></script>
 
   	<script src="./src/js/controllers/main.js"></script>
   	<script src="./src/js/controllers/add.js"></script>
   	<script src="./src/js/controllers/filter.js"></script>
-  	
-
+  	<script src="./src/js/controllers/login.js"></script>
+  	<script src="./src/js/controllers/signup.js"></script>
 
 </body>
 </html>
