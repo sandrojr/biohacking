@@ -1,0 +1,37 @@
+{
+  "name": "biohacking",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Trabalho final da disciplina RIA (Fa7)",
+  "devDependencies": {
+    "gulp": "3.9.0",
+    "gulp-connect": "2.2.0"
+  },
+  "scripts": {
+    "server": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alanbacelar/biohacking.git"
+  },
+  "authors": [
+    "Alan Bacelar",
+    "Eric Bernardes"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alanbacelar/biohacking/issues"
+  },
+  "homepage": "https://github.com/alanbacelar/biohacking#readme",
+  "dependencies": {
+    "angular": "1.4.7",
+    "angular-moment": "0.10.3",
+    "angular-route": "1.4.7",
+    "angular-sanitize": "1.4.7",
+    "jquery": "2.1.4",
+    "lovefield": "2.0.65",
+    "materialize": "1.0.0",
+    "materialize-css": "0.97.1",
+    "moment": "2.10.6"
+  }
+}
