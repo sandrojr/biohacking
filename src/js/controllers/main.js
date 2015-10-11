@@ -9,8 +9,6 @@
 		var vm = this;
 		var tableName = 'logs';
 
-		console.log(user);
-
 		vm.kinds = [
 	        {id: 11, name:  "BATH"}, 
 	        {id: 9, name:  "DEFECATE"},
@@ -24,12 +22,6 @@
 	        {id: 1, name:  "DWEIGHT"},
 	        {id: 4, name:  "WORKOUT"}
 	    ];
-
-		// Database.insert('logs', {
-		// 	kind: 'SLEEP',
-		// 	logged_at: new Date(),
-		//     'description': 'Alan Bacelar'
-		// });
 
 		Database.findAll(tableName).then(function(results) {
 			$scope.$apply(function() {
