@@ -31,6 +31,10 @@ main {
 	cursor: pointer;
 }
 
+.collection-item:hover {
+  background-color: #fafafa;
+}
+
 .list-group {
   display: flex;
   flex-direction: row;
@@ -53,4 +57,9 @@ main {
   border: 1px solid #fff;
   
   cursor: pointer;
+}
+
+.list-group-item:hover {
+  background-color: #333 !important;
+  color: #fff;
 }
