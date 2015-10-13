@@ -20,13 +20,19 @@
 <body>
 
 	<nav class="light-blue lighten-1" role="navigation">
-		<div class="container">
+		<div class="nav-wrapper">
+			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 			<a id="logo-container" href="#/">
 				<img ng-src="{{user.img || 'favicon.png'}}" width="40" class="logo" />
 				Biohancking
 			</a>
 
-			<ul class="right" ng-show="user.id">
+			<ul class="right hide-on-med-and-down" ng-show="user.id">
+				<li><a href="#/">Logs</a></li>
+				<li><a href="#/logout">Logout</a></li>
+			</ul>
+
+			<ul class="side-nav" ng-show="user.id" id="mobile-demo">
 				<li><a href="#/">Logs</a></li>
 				<li><a href="#/logout">Logout</a></li>
 			</ul>

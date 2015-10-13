@@ -20,7 +20,7 @@
 	        {id: 6, name:  "SLEEP"},
 	        {id: 8, name:  "URINATE"},
 	        {id: 7, name:  "WAKEUP"},
-	        {id: 1, name:  "DWEIGHT"},
+	        {id: 1, name:  "WEIGHT"},
 	        {id: 4, name:  "WORKOUT"}
 	    ];
 
