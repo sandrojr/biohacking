@@ -12,17 +12,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alanbacelar/biohacking.git"
+    "url": "git+https://github.com/sandrojr/biohacking.git"
   },
   "authors": [
-    "Alan Bacelar",
-    "Eric Bernardes"
+    "sandrojr"
+
   ],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/alanbacelar/biohacking/issues"
+    "url": "https://github.com/sandrojr/biohacking/issues"
   },
-  "homepage": "https://github.com/alanbacelar/biohacking#readme",
+  "homepage": "https://github.com/sandrojr/biohacking#readme",
   "dependencies": {
     "angular": "1.4.7",
     "angular-moment": "0.10.3",
