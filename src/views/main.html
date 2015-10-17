@@ -1,3 +1,13 @@
+<div ng-controller="List">
+  <ul>
+    <li ng-repeat="log in vm.logs | filter: filterSearch">{{log.description}}</li>
+  </ul>
+</div>
+
+  <div>
+    <input type="search" ng-model="search">
+  </div>
+
 <div ng-show="vm.model.id" ng-include="'src/views/form.html'"></div>
 
 <ul class="collection" ng-show="vm.logs.length">
@@ -7,7 +17,7 @@
 				<h6 class="title"><b>{{log.kind}}</b></h6>
 				<small>{{log.logged_at | amDateFormat:'MM/DD/YYYY HH:mm'}}</small>
 			</div>
-			
+
 			<div class="col s6" ng-bind-html="vm.showHashtag(log.description)"></div>
 		</div>
 	</li>
