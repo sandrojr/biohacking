@@ -1,11 +1,11 @@
 <div ng-controller="List">
   <ul>
-    <li ng-repeat="log in vm.logs | filter: filterSearch">{{log.description}}</li>
+    <li ng-repeat="description in descriptions | filter: filterSearch">{{log.description)}}</li>
   </ul>
 </div>
 
   <div>
-    <input type="search" ng-model="search">
+    <input type="search" id="description" ng-model="vm.model.description">
   </div>
 
 <div ng-show="vm.model.id" ng-include="'src/views/form.html'"></div>
