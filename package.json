@@ -1,7 +1,7 @@
 {
   "name": "biohacking",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "description": "Trabalho final da disciplina RIA (Fa7)",
   "devDependencies": {
     "gulp": "3.9.0",
