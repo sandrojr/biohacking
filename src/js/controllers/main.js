@@ -33,6 +33,7 @@
 		vm.showHashtag = showHashtag;
 		vm.destroy = destroy;
 		vm.done = done;
+		vm.firstType = firstType;
 
 		////////////////////////////////////////////////
 
@@ -53,6 +54,37 @@
 				return string.replace(/(#[a-z0-9][a-z0-9\-_]*)/ig, "<a>$1</a>");
 			}
 		}
+
+
+		var List = function($scope){
+
+			Database.findAll(tableName).then(function(results) {
+				$scope.$apply(function() {
+					vm.logs = results;
+				});
+			});
+
+var descriptions[];
+
+ for (var vm.log in vm.logs) {
+	 descriptions.add( vm.log.description);
+
+ }
+$scope.descriptions= descriptions;
+
+
+  function escRegExp(string){
+   return string.replace(/([.*+?^=!:${}()|\[\]\/\\])/g);
+    }
+
+  $scope.filterSearch = function(description) {
+ if (!$scope.search){
+   return true;
+ }else
+    var regex = new RegExp('\\b' + escRegExp($scope.search), 'i');
+    return regex.test(description.split(' ')[0]);
+};
+}
 
 		function firstType(input, type){
 	    var results = [];
